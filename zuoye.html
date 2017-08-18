@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul ,li{padding: 0;margin: 0;list-style: none; }
+			.box{
+				height: 210px;
+				position: relative;
+				overflow: hidden;
+			}
+			.box li{
+				float: left;
+				width: 150px;
+				height: 200%;
+				overflow: hidden;
+				position: absolute;
+			
+				top: -210px;
+			}
+			.box li img{
+				
+				vertical-align: top;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="box">
+		
+		</ul>
+		<script src="js/utils.js"></script>
+		<script>
+			var uls = $('.box')[0];
+			var ht = '';
+			for (var i = 0; i < 8; i++) {
+				ht+= `<li style="left:${i*150}px">
+				<img src="img/0.png"/>
+				<img src="img/0.png"/>
+			</li>`
+			}
+			uls.innerHTML = ht;
+			var lis = $('.box li');
+			var d = new Date();
+			var hours = d.getHours();
+			var minute = d.getMinutes();
+			var second = d.getSeconds();
+			var shang = addZero(hours)+":"+addZero(minute)+":"+addZero(second);
+			setInterval(fun,1000);
+			
+			fun()
+			
+			function fun(){
+				var d = new Date();
+				var hours = d.getHours();
+				var minute = d.getMinutes();
+				var second = d.getSeconds();
+				var shijian = addZero(hours)+":"+addZero(minute)+":"+addZero(second);
+				var n = 0;
+			
+			
+				for (var i = 0; i < lis.length; i++) {
+					var imgs = $('img',lis[i]);
+					if(shijian.charAt(i) === ':'){
+						imgs[1].src = 'img/fuh.png';
+						fn(imgs[1])
+					}else{
+						imgs[0].src=imgs[1].src
+						imgs[1].src = 'img/'+parseFloat(shijian.charAt(i))+'.png';
+					}	
+					if(shang.charAt(i) !== shijian.charAt(i)){
+							
+							fna(lis[i]) 
+						
+					}
+				}
+					shang  = shijian;
+					
+					function  fn(naq){
+						setTimeout(function(){
+							naq.src = 'img/nfh.png';
+						},500)
+					}
+						
+					function fna(maa){
+						maa.style.top = 0;
+						mTween(maa,'top',-210,200,'linear');
+					}
+			}
+		</script>
+	</body>
+</html>
