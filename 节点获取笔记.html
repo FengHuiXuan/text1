@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		获取节点   
+		
+						getElementById()
+						getElementsByTagName()
+						getElementsByClassName()
+						querySelector
+						querySelectorAll
+		
+		节点分类：       nodeType（转为数字）       nodeName（转为标签名）
+						元素节点     	1			大写标签名
+						属性节点     	2			   属性名
+						文本节点     	3			   #text
+						注释节点     	8			   #comment
+						文档节点     	9			   #document	
+		
+		
+		previousElementSibling()    获取上一个兄弟元素
+		
+		nextElementSibling()      	获取下一个兄弟元素
+		
+		node.childNodes			--- 获取所有子节点  包括元素节点    字体节点    注释节点    
+		
+		node.children        ----   获取所有的元素节点
+		
+		node.parentNode         ----   获取父元素
+		
+		node.firstElementChild  ----   获取元素中第一个元素子节点
+		
+		node.lastElementChild  ----     获取元素中的最后一个元素子节点
+			
+		
+		
+	属性操作  
+		setAttribute
+		
+		element.setAttribute(key,value)     设置行间属性             key为属性名    value为属性值       并设置在行间中
+		
+		element.getAttribute(key)     获取行间属性          key为属性名            获得的路径也为相对路径
+ 		
+		element.removeAttribute(key)    删除行间属性      key为属性名  
+	
+	
+	
+	若要把属性写在行间中 则需要在属性前加data 如：<input type="text" id="box"  date-abc-abc="11111" />
+	可通过 该元素box.dataset.abcabc 找到该元素 
+	
+	
+	
+	创建元素  
+	
+	var newLi =	 document.createElement('li')    则在生成一个li   但不会显示出来   可用newLi操作该li
+	 
+	element.appendChild(newLi)                 则在元素中添加了li;
+		
+	element.removeChild(newLi)                 在元素element中删除newLi
+	
+	 element.insertBefore(newElement,childNode2)   表示在元素childNode2前面插入元素newElement
+					newElement，必须存在的元素     childNode2可以没有该元素
+	
+	element.replaceChild(node,childNode)
+	
+	element.replaceChild(node,childNode)  表示将元素childNode替换成node   两个参数都必须写
+	
+	---------------------------------------------------------------------------------------------------------------------
+	
+	添加删除class
+	
+	element.classList.add(要添加的class名)
+	
+	element.classList.remove(要删除的class名)
+	
+	element.classList.toggle(btn)    元素element中有没有btn这个class名 ：  有去掉   没有就添加上    添加上返回 true否则就返回falst
+	
+	element.classList.contains(btn)  判断元素element中有没有btn这个class名   有返回true 没有返回falst
+	
+	-------------------------------------------------------------------------------------------
+	node.scrollWidth/node.scrollHeight   包含内容的宽高
+	
+	获得节点   getComputedStyle()
+	
+	
+	</body>
+</html>
