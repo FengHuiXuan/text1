@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+		
+    </style>
+    
+    <script>
+    //来一道算法题，已知有n个大漠，尤雨溪需要dui其中的m个，m≦n，不能重复怼同一个大漠，请写一个算法，输出所有不重复无视顺序的组合
+
+    /*
+            3个大漠 1 2 3
+            dui 2个大漠
+            
+            [1,2]
+            [1,3]
+            [2,3]
+
+    */
+
+   /* var func = function(n, m) {
+            if (n <= 0 || m <= 0 || m > n) return []
+            let result = []
+            fn([], n, m, 1)
+            return result
+
+            function fn(temp, n, m, start) {
+            	//console.log(temp);
+                if (temp.length === m) {
+                    result.push(Array.from(temp))
+                    return;
+                }
+                //min(n-m+start,n)  n-m+start是n-(m-start)
+                for (var i = start; i <= n; i++) {
+                    temp.push(i)
+                    fn(temp, n, m, i + 1)
+                    temp.pop()
+                    //console.log(temp);
+                }
+            }
+
+           }
+        console.log(func(5,4));*/
+       
+      /*var arr = []
+       function fun(m,n){
+       	
+       		for (var i=1; i <= m;i++) {
+       			
+       			for (var j = i+1; j <= m; j++) {
+       				
+       				for (var k = j+1; k <=m; k++) {
+       							var arr2 = [i,j,k] 
+       							
+       							arr.push(arr2)
+       				}
+       				
+       			}
+       			
+       			
+       		}
+       		return arr
+       	
+       }*/
+      
+       
+  //  console.log(func(10,9))   
+   /* function func(b,n){
+    	var arr2 = []
+  		return fn(1,b,n,[])   
+  		 function fn(a,b,n,arr){
+        	for (var i = a; i <= b; i++) {  
+        		
+        		var arr3 = arr;    //  让arr记录上一级循环传过来的值  且不能让它随arr3变化
+	     		
+	     		arr3.push(i);  		//关键点在于怎么每次只拿到每一个i值
+	     		
+	     		fn(i+1,b,n,arr3);
+	     		
+	     		if(arr3.length == n){  
+	     			
+	     			arr2.push(arr3.join())
+	     			
+	     		}
+	     		arr.pop()    //  为了不让arr在此循环过程中不变
+	     	}
+	     	return arr2
+    	 }
+    }*/
+ 
+
+
+ 	
+    </script>
+</head>
+
+<body>
+	 
+	
+</body>
+
+</html>
