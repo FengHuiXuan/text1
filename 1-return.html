@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script>
+			function func(){
+				fn(1);
+				console.log(custom);
+				return 
+
+				// 函数声明和声明变量，虽然在return后面，但是有变量提升功能，所以会提到当前作用域的最开始。
+				function fn(n){
+					console.log(n);
+				}
+
+				var custom = 1;
+			}
+
+			func()
+		</script>
+	</head>
+
+	<body>
+		
+	</body>
+</html>
