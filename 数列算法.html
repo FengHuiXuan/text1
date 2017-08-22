@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+		
+    </style>
+    
+    <script>
+    //来一道算法题，已知有n个大漠，尤雨溪需要dui其中的m个，m≦n，不能重复怼同一个大漠，请写一个算法，输出所有不重复无视顺序的组合
+
+       
+    console.log(func(10,9))   
+    function func(b,n){
+    	var arr2 = []
+  		return fn(1,b,n,[])   
+  		 function fn(a,b,n,arr){
+        	for (var i = a; i <= b; i++) {  
+        		
+        		var arr3 = arr;    //  让arr记录上一级循环传过来的值  且不能让它随arr3变化
+	     		
+	     		arr3.push(i);  		//关键点在于怎么每次只拿到每一个i值 
+	     		
+	     		fn(i+1,b,n,arr3);
+	     		
+	     		if(arr3.length == n){  
+	     			
+	     			arr2.push(arr3.join())
+	     			
+	     		}
+	     		arr.pop()    //  为了不让arr在此循环过程中不变
+	     	}
+	     	return arr2
+    	 }
+    }
+ 
+
+
+ 	
+    </script>
+</head>
+
+<body>
+	 
+	
+</body>
+
+</html>
