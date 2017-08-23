@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let arr = [1,4,4,5,5,6]
+			// indexOf方法
+			function findexOf(arr){
+				let arr1 = [];
+	    		for (var i = 0; i < arr.length; i++) {
+		    		if(arr1.indexOf(arr[i]) == -1){
+		    			arr1.push(arr[i])
+		    		}
+	    		}
+	    		return arr1
+			}
+			
+			// 对象方法
+			function fobj(arr){
+				
+				let arr1 = [];
+				
+				let obj = {};
+				
+				for (var i = 0; i < arr.length; i++) {
+					if(!obj[arr[i]]){
+						obj[arr[i]] = true;
+						arr1.push(arr[i])
+					}
+				}
+				
+				return arr1
+			}
+			// 循环排查
+			
+			function circulation(arr){
+			
+			 	let arr1 = [arr[0]];
+				let n = true;
+				for (var i = 0; i < arr.length; i++) {
+					for (var j = 0; j < arr1.length; j++) {
+						if(arr1[j] == arr[i]){
+							n = false
+							break
+						}else{
+							n = true
+						}
+					}
+					if(n){
+						arr1.push(arr[i])
+					}
+				}
+				return arr1
+			}
+			
+    	
+    	
+    	console.log(circulation(arr))
+		</script>
+	</body>
+</html>
