@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+		</style>
+		<script>
+			
+			function Tab(box){
+				this.box = box;
+			}
+			
+			Tab.prototype = {
+				constructor:this,
+				init(){
+					this.box.onmousedown = this.downF.bind(this);
+					
+				},
+				downF(ev){
+					this.x = ev.clientX - this.box.offsetLeft
+					this.y = ev.clientY - this.box.offsetTop
+					document.onmousemove = this.moveF.bind(this);
+					document.onmouseup = this.upF.bind(this);
+				},
+				moveF(ev){
+					this.box.style.left = ev.clientX -  this.x  + 'px'
+					this.box.style.top = ev.clientY - this.y + 'px'
+				},
+				upF(){
+					document.onmousemove = document.onmouseup =  null
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box"></div><br />
+		
+		
+		<script>
+			
+			let box = document.getElementById('box')
+			
+			let d = new Tab(box)
+			
+			
+			
+			d.init()
+			
+		</script>
+		
+	</body>
+</html>
