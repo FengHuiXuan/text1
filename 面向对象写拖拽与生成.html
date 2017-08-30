@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+		</style>
+		<script>
+			
+			class Drag{
+				
+				init(box){
+					this.box = box;
+					this.box.onmousedown = this.DownF.bind(this)
+					document.onmouseup = this.upF.bind(this)
+				}
+				
+				DownF(ev){
+					this.x = ev.clientX - this.box.offsetLeft;
+					this.y = ev.clientY - this.box.offsetTop;
+					document.onmousemove = this.MoveF.bind(this)
+				}
+				MoveF(ev){
+					this.box.style.left = ev.clientX - this.x + 'px';
+					this.box.style.top = ev.clientY - this.y + 'px';
+				}
+				upF(){
+					document.onmousemove = document.onmouseup = null
+				}
+				
+			}
+						
+			class Create extends Drag {
+				constructor(obj){
+					super();
+					this.obj = {
+						width:100,
+						height:100,
+						background:'red'
+					}
+					Object.assign(this.obj,obj)
+				}
+				CreateDiv(){
+					let div = document.createElement('div') 
+					return div
+				}
+				CreateCss(){
+					this.div = this.CreateDiv()
+					this.CreateCss1()
+					document.body.appendChild(this.div)	
+				}
+				
+				CreateCss1(){
+					this.div.style.cssText = `
+						width: ${this.obj.width}px;
+						height: ${this.obj.height}px;
+						background: ${this.obj.background};
+						position: absolute;
+						left: 0;
+						top: 0;
+					`
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input id="btn" type="button" value="拖拽" />
+		<script>
+			
+			btn.onclick = function(){
+				let l = new Create({
+					height:100,
+					width:200
+				})
+				l.CreateCss()
+				l.init(l.div)
+			}
+			
+		</script>
+	</body>
+</html>
